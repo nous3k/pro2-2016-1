@@ -38,7 +38,7 @@ public class HomeScreen extends Screen {
 		});
 			
 		JLabelTitle.setFont(new Font("Arial", Font.BOLD, 40));
-		JLabelTitle.setLocation(100, 100);
+		JLabelTitle.setBounds(10, 10, 460, 100);
 		
 		//nastavim velikost a pozici
 		

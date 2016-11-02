@@ -21,4 +21,12 @@ public class World {
 	public void addHeart(Heart heart){
 		hearts.add(heart);
 	}
+	
+	public String toString(){
+		return("Jméno ptáka: " + bird.getName() + " Poèet trubek: " + tubes.size() + " Poèet srdíèek: " + hearts.size());
+	}
+	
+	public Bird getBird(){
+		return bird;
+	}
 }
