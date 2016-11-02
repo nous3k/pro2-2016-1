@@ -1,6 +1,7 @@
 package cz.uhk.fim.pro2.gui;
 
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,6 +29,14 @@ public class GameScreen extends Screen {
 			}
 		});
 		
+		
+	//nastaveni pozice a velikosti tlacitek
+		
+		jButtonBack.setBounds(20, 20, 60, 60);
+		jButtonBack.setFont(new Font("Arial", Font.PLAIN, 8));
+		
+		jButtonPause.setBounds(90, 20, 60, 60);
+		jButtonPause.setFont(new Font("Arial", Font.PLAIN, 8));
 		
 	}
 
