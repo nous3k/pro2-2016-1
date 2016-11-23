@@ -1,14 +1,14 @@
-package cz.uhk.fim.pro2.gui;
+package cz.uhk.fim.game.gui;
 
 import javax.swing.JPanel;
 
 public abstract class Screen extends JPanel {
-
+	
 	protected MainFrame mainFrame;
 	
-	public Screen(MainFrame mainFrame){
-		this.mainFrame = mainFrame;
+	public Screen(MainFrame mainFrame) {
+		this.mainFrame =mainFrame;
 		setLayout(null);
-		
 	}
+
 }
