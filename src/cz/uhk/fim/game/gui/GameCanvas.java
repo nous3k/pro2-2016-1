@@ -12,6 +12,8 @@ import cz.uhk.fim.pro2.game.model.World;
 
 public class GameCanvas extends Canvas {
 	private World world;
+	public static final int BOUND_UP = 100;
+	public static final int BOUND_DOWN = 50;
 	
 	public GameCanvas(World world) {
 		this.world=world;
@@ -36,5 +38,10 @@ public class GameCanvas extends Canvas {
 			tube.paint(g);
 		}
 			
+		g.setColor(Color.yellow);
+		g.fillRect(0, 0, MainFrame.WIDTH, BOUND_UP);
+		
+		g.setColor(Color.black);
+		g.fillRect(0, MainFrame.HEIGHT - BOUND_DOWN, MainFrame.WIDTH, BOUND_DOWN);
 	}
 }

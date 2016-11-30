@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import cz.uhk.fim.game.gui.GameCanvas;
 import cz.uhk.fim.game.gui.MainFrame;
 
 
@@ -75,20 +76,17 @@ public class Bird {
 	}
 	
 	//kolize se zemí
-	public Boolean isOutOf() {
+	public boolean isOutOf() {
 		Rectangle rectangle = getRectangle();
 		
+		int upLimit = GameCanvas.BOUND_UP;
+		int downLimit = MainFrame.HEIGHT - GameCanvas.BOUND_DOWN;
+		
 		//porovnani min hodnot
-		if (rectangle.getMinX()<0 || rectangle.getMinY() <0){
-			return true;
-		}
+		return rectangle.getMinY()<upLimit || rectangle.getMaxY() > downLimit;
+
 		
-		if (rectangle.getMaxX()> MainFrame.WIDTH || rectangle.getMaxY() > MainFrame.HEIGHT){
-			return true;
-		}else{
-			return false;
-		}
-		
+
 			
 	}
 	

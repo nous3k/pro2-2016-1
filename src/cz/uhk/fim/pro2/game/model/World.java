@@ -96,7 +96,7 @@ public class World {
 		
 		for(Heart heart : hearts){
 			if(heart.getPositionX() < -100){
-				heart.setPositionX(heart.getPositionX() + (hearts.size() +2)*SPACE_BETWEEN_HEARTS);
+				heart.setPositionX(heart.getPositionX() + (hearts.size() +1)*SPACE_BETWEEN_HEARTS);
 				heart.setPositionY(Heart.getRandomY());
 			}
 		}
