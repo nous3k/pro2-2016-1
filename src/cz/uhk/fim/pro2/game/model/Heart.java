@@ -3,6 +3,7 @@ package cz.uhk.fim.pro2.game.model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 public class Heart {
 
@@ -54,6 +55,10 @@ public class Heart {
 	//sam - rozpohybuje srdce 
 	public void update(float deltaTime){
 		positionX -= World.SPEED * deltaTime;
+	}
+	
+	public static float getRandomY(){
+		return (new Random().nextFloat()*300) + 200;
 	}
 	
 	
