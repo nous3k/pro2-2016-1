@@ -3,6 +3,7 @@ package cz.uhk.fim.pro2.game.model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import cz.uhk.fim.game.gui.GameCanvas;
 import cz.uhk.fim.game.gui.MainFrame;
@@ -34,17 +35,13 @@ public class Bird {
 		score = DEFAULT_SCORE;
 	}
 	
-	public void paint(Graphics g){
+	public void paint(Graphics g, BufferedImage image){
 		g.setColor(Color.BLUE);		
 		Rectangle rectangle = getRectangle();
 		
-		g.fillRect(
-				(int)rectangle.getX(),
-				(int)rectangle.getY(),
-				(int)rectangle.getWidth(),
-				(int)rectangle.getHeight());
-	}
+		g.drawImage(image, (int)rectangle.getX(), (int)rectangle.getY(), (int)rectangle.getWidth(), (int)rectangle.getHeight(), null);
 	
+	}
 	//vraáti souøadnice ke kolizím	
 	public Rectangle getRectangle() {
 		return new Rectangle(
