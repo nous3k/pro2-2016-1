@@ -2,7 +2,9 @@ package cz.uhk.fim.pro2.game.model;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 import cz.uhk.fim.game.gui.GameCanvas;
@@ -24,6 +26,12 @@ public class Bird {
 	private float speed;
 	private int lives;
 	private int score;
+	private int angle;
+	
+	private boolean up = false;
+	
+	 private AffineTransform transform;
+	
 
 	public Bird(String name, float positonX, float positionY) {
 		super();
@@ -33,14 +41,26 @@ public class Bird {
 		speed = JUMP / 2;
 		lives = DEFAULT_LIVES;
 		score = DEFAULT_SCORE;
+		transform = new AffineTransform();
 	}
 	
 	public void paint(Graphics g, BufferedImage image){
 		g.setColor(Color.BLUE);		
 		Rectangle rectangle = getRectangle();
+		Graphics2D g2d = (Graphics2D) g;
 		
-		g.drawImage(image, (int)rectangle.getX(), (int)rectangle.getY(), (int)rectangle.getWidth(), (int)rectangle.getHeight(), null);
+		g2d.drawImage(image, (int)rectangle.getX(), (int)rectangle.getY(), (int)rectangle.getWidth(), (int)rectangle.getHeight(), null);
 	
+		if(up){
+			
+			transform.translate(image.getWidth() / 2, image.getHeight() / 2);
+			transform.rotate(Math.toRadians(45));
+			g2d.drawImage(image,transform,null);
+		}
+		
+		if(speed < 0){
+			up = false;
+		}
 	}
 	//vraáti souøadnice ke kolizím	
 	public Rectangle getRectangle() {
@@ -76,6 +96,9 @@ public class Bird {
 	public boolean isOutOf() {
 		Rectangle rectangle = getRectangle();
 		
+		Sound sound = new Sound("sfx_die");
+		
+		
 		int upLimit = GameCanvas.BOUND_UP;
 		int downLimit = MainFrame.HEIGHT - GameCanvas.BOUND_DOWN;
 		
@@ -90,6 +113,8 @@ public class Bird {
 	
 	public void goUp(){
 		speed = JUMP;
+		Sound sound = new Sound("sfx_wing.wav");
+		up = true;
 	}
 	
 	public String getName(){

@@ -53,12 +53,14 @@ public class World {
 		for(Tube tube: tubes){
 			tube.update(deltaTime);			
 			if(bird.collideWith(tube)){
+				Sound sound = new Sound("sfx_hit.wav");
 				tube.setCounted(true);
 				worldListener.crashTube(tube);
 			}
 			else{
 					if(bird.getPositionX() > tube.getMaxX()){
 						if(!tube.isCounted()){
+							Sound sound = new Sound("sfx_point.wav");
 							bird.addPoint();
 							System.out.println("Score: " + bird.getScore());
 							tube.setCounted(true);
